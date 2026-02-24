@@ -1,0 +1,81 @@
+<div class="slider-viewport">
+  
+  <div class="slider-track" [style.transform]="'translateX(' + (-currentIndex * 100) + '%)'">
+    <div class="slide" *ngFor="let image of sliderImages">
+      <img [src]="image.url" [alt]="image.alt">
+    </div>
+  </div>
+
+  <div class="hero-overlay">
+    <div class="hero-content">
+      <h1 class="hero-title">A better way to<br>Shoping</h1>
+      <p class="hero-subtitle">Chose What You Love</p>
+      <a href="#products-section">
+      <button class="tea-btn" (click)="filterByCategory('all')" >Shop Now</button>
+        </a>
+    </div>
+  </div>
+
+</div>
+
+
+
+<div class="products-section" id="products-section">
+  
+  <div class="cart-summary" *ngIf="cartTotal > 0">
+    <h3>Cart Total: <span>{{ cartTotal | currency:'USD' }}</span></h3>
+    <p>{{ cartItems.length }} unique item(s) added.</p>
+  </div>
+
+  <div class="category-filters">
+    <button class="filter-btn" [class.active]="selectedCategory === 'all'" (click)="filterByCategory('all')">All</button>
+    <button class="filter-btn" *ngFor="let cat of categories" [class.active]="selectedCategory === cat" (click)="filterByCategory(cat)">
+      {{ cat }}
+    </button>
+  </div>
+
+  <div class="product-grid">
+    <div class="product-card" *ngFor="let product of filteredProducts" appHoverEffect>
+      
+      <div style="overflow: hidden; border-radius: 8px 8px 0 0;">
+        <img [src]="product.thumbnail" [alt]="product.title" class="product-image">
+      </div>
+      
+      <div class="product-info">
+        <h3 class="product-name">{{ product.title }}</h3>
+        
+        <p class="product-desc">
+          <span *ngIf="!product.showFullDesc">
+            {{ product.description | truncate:3 }} 
+            <span class="read-more" (click)="toggleDescription(product)">read more</span>
+          </span>
+          <span *ngIf="product.showFullDesc">
+            {{ product.description }} 
+            <span class="read-more" (click)="toggleDescription(product)">show less</span>
+          </span>
+        </p>
+
+        <h4 class="product-price">${{ product.price }}</h4>
+        
+        <div class="qty-selector">
+          <button class="qty-btn" (click)="decreaseQuantity(product)">-</button>
+          <span class="qty-number">{{ product.quantity }}</span>
+          <button class="qty-btn" (click)="increaseQuantity(product)">+</button>
+        </div>
+
+        <app-buy-button 
+          title="Buy Now" 
+          color="#1b4353" 
+          (buttonClick)="addToCart(product)">
+        </app-buy-button>
+        
+        <div class="cart-summary" *ngIf="cartTotal >= 0">
+    <h3>Cart Total: <span>{{ cartTotal | currency:'USD' }}</span></h3>
+    <p>{{ cartItems.length }} unique item(s) added.</p>
+  </div>
+
+  <div class="category-filters">
+      </div>
+    </div>
+  </div>
+</div>

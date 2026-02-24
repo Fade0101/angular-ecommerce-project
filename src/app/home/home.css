@@ -1,0 +1,157 @@
+/* Update your existing viewport to account for the navbar height */
+.slider-viewport {
+  width: 100%;
+  height: calc(100vh - 90px); 
+  overflow: hidden; 
+  position: relative;
+}
+
+/* Keep your existing slider-track and slide css below... */
+.slider-track {
+  display: flex;
+  flex-wrap: nowrap; 
+  width: 100%;
+  height: 100%;
+  transition: transform 0.5s ease-in-out; 
+}
+
+.slide {
+  flex: 0 0 100%; 
+  width: 100%;
+  height: 100%;
+}
+
+.slide img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; 
+}
+
+/* --- NEW OVERLAY STYLES --- */
+.hero-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center; /* Centers vertically */
+  padding-left: 8%;    /* Pushes text from the left edge */
+  pointer-events: none; /* Allows slider dragging/clicking if added later */
+}
+
+.hero-content {
+  pointer-events: auto; /* Re-enables clicking on the button */
+}
+
+.hero-title {
+  font-size: 5.5rem;
+  font-weight: 700;
+  color: #ffffff;
+  line-height: 1;
+  margin-bottom: 1.5rem;
+  letter-spacing: -2px;
+}
+
+.hero-subtitle {
+  font-size: 1.2rem;
+  color: #ffffff;
+  margin-bottom: 2.5rem;
+}
+
+.tea-btn {
+  background-color: #1b4353;
+  color: #ffffff;
+  border: none;
+  padding: 15px 35px;
+  font-size: 1.1rem;
+  font-weight: 600;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.tea-btn:hover {
+  background-color: #112a34; /* Slightly darker on hover */
+}
+.products-section { padding: 60px 5%; background-color: #ffffff; }
+
+.category-filters {
+  display: flex; gap: 15px; overflow-x: auto; padding-bottom: 20px; margin-bottom: 30px;
+}
+
+.filter-btn {
+  padding: 8px 20px; border: 1px solid #1b4353; background-color: transparent;
+  color: #1b4353; border-radius: 25px; cursor: pointer; text-transform: capitalize;
+}
+
+.filter-btn.active, .filter-btn:hover {
+  background-color: #1b4353; color: #ffffff;
+}
+
+/* Forces exactly 3 columns */
+.product-grid {
+  display: grid; grid-template-columns: repeat(3, 1fr); gap: 30px;
+}
+
+.product-card {
+  border: 1px solid #e1e5e8; border-radius: 8px; overflow: hidden;
+  display: flex; flex-direction: column; background-color: #ffffff;
+}
+
+.product-image {
+  width: 100%; height: 250px; object-fit: cover; background-color: #f4f6f8;
+}
+
+.product-info { padding: 20px; display: flex; flex-direction: column; flex-grow: 1; }
+
+.product-name { color: #1b4353; font-size: 1.2rem; font-weight: 700; margin-bottom: 8px; }
+
+.product-desc { color: #7a8c99; font-size: 0.9rem; flex-grow: 1; margin-bottom: 15px; }
+
+/* The clickable 'read more' / 'show less' links */
+.read-more {
+  color: #1b4353; font-weight: 600; cursor: pointer; text-decoration: underline; margin-left: 5px;
+}
+
+.product-price { color: #1b4353; font-size: 1.4rem; font-weight: 700; margin-bottom: 15px; }
+
+.temp-btn {
+  background-color: #1b4353; color: #ffffff; border: none; padding: 12px;
+  border-radius: 5px; font-weight: 600; cursor: pointer;
+}
+
+/* --- NEW SLEEK QUANTITY SELECTOR --- */
+.qty-selector {
+  display: inline-flex;
+  align-items: center;
+  border: 1px solid #1b4353; /* Dark slate blue border */
+  border-radius: 25px;       /* Makes it a pill shape */
+  margin-bottom: 15px;
+  background-color: #ffffff;
+  width: fit-content;        /* Keeps it compact */
+}
+
+.qty-btn {
+  background-color: transparent;
+  border: none;
+  color: #1b4353;
+  font-size: 1.2rem;
+  padding: 5px 15px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  border-radius: 25px;
+}
+
+.qty-btn:hover {
+  background-color: #f0f4f8; /* Soft greyish-blue hover */
+}
+
+.qty-number {
+  font-weight: 600;
+  color: #1b4353;
+  font-size: 1rem;
+  padding: 0 10px;
+  min-width: 30px;
+  text-align: center;
+}

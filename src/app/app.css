@@ -1,0 +1,60 @@
+/* The main navbar container */
+.custom-navbar {
+  display: flex;
+  justify-content: space-between; /* Pushes left, center, and right sections apart */
+  align-items: center; /* Centers items vertically */
+  padding: 25px 5%; /* Adds space on the top/bottom and sides */
+  background-color: #ffffff;
+}
+
+/* Groups the links on the left and right */
+.nav-left, .nav-right {
+  display: flex;
+  align-items: center;
+  gap: 30px; /* Creates perfect spacing between 'Shop' and 'About' */
+}
+
+/* Styling the text links */
+.nav-link {
+  color: #7a8c99; /* The exact greyish-blue from the design */
+  text-decoration: none;
+  font-size: 13px;
+  font-weight: 500;
+  letter-spacing: 1.5px;
+  transition: color 0.3s ease;
+}
+
+.nav-link:hover {
+  color: #1b4353; /* Darkens on hover */
+}
+
+/* Styling the Logo */
+.logo-text {
+  margin: 0;
+  color: #1b4353; /* The dark slate blue color */
+  font-size: 26px;
+  font-weight: 800;
+  letter-spacing: 2px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.whale-icon {
+  font-size: 30px;
+}
+
+/* Styling the icons on the right */
+.icon-link {
+  color: #1b4353;
+  text-decoration: none;
+  font-size: 18px;
+  display: flex;
+  align-items: center;
+}
+
+.cart-icon {
+  font-size: 15px;
+  font-weight: 500;
+  gap: 5px;
+}
