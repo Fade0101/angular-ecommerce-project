@@ -121,15 +121,14 @@
   border-radius: 5px; font-weight: 600; cursor: pointer;
 }
 
-/* --- NEW SLEEK QUANTITY SELECTOR --- */
 .qty-selector {
   display: inline-flex;
   align-items: center;
-  border: 1px solid #1b4353; /* Dark slate blue border */
-  border-radius: 25px;       /* Makes it a pill shape */
+  border: 1px solid #1b4353; 
+  border-radius: 25px;      
   margin-bottom: 15px;
   background-color: #ffffff;
-  width: fit-content;        /* Keeps it compact */
+  width: fit-content;    
 }
 
 .qty-btn {

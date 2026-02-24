@@ -81,31 +81,24 @@ increaseQuantity(product: any): void {
   nextSlide(): void {
     this.currentIndex = (this.currentIndex === this.sliderImages.length - 1) ? 0 : this.currentIndex + 1;
     
-    // 2. We force Angular to update the HTML right now
     this.cdr.detectChanges(); 
 }
-    // --- NEW: Function to run when the buy button emits a click ---
   addToCart(product: any): void {
-    // 1. Check if the item is already in our cart array
     const existingItem = this.cartItems.find(item => item.id === product.id);
     
     if (existingItem) {
-      // If it is, just add the new quantity to the existing quantity
       existingItem.cartQuantity += product.quantity;
     } else {
-      // If not, push a new item to the cart array
       this.cartItems.push({ ...product, cartQuantity: product.quantity });
     }
 
     // 2. Recalculate the total
     this.calculateTotal();
 
-    // 3. Reset the card's quantity selector back to 1 for the next purchase
     product.quantity = 1; 
   }
 
   calculateTotal(): void {
-    // The reduce function loops through the cart and multiplies price * quantity for each item
     this.cartTotal = this.cartItems.reduce((total, item) => total + (item.price * item.cartQuantity), 0);
   }
 }
