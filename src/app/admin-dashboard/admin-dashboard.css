@@ -1,0 +1,14 @@
+.admin-container { padding: 40px; }
+.title { color: #1b4353; margin-bottom: 30px; }
+
+.add-form { background: #f4f6f8; padding: 20px; border-radius: 8px; margin-bottom: 30px; }
+.form-row { display: flex; gap: 10px; }
+.form-row input { padding: 10px; border: 1px solid #ddd; border-radius: 4px; flex: 1; }
+
+.add-btn { background: #1b4353; color: white; border: none; padding: 10px 20px; border-radius: 4px; cursor: pointer; }
+
+.admin-table { width: 100%; border-collapse: collapse; }
+.admin-table th, .admin-table td { padding: 15px; border: 1px solid #eee; text-align: left; }
+.admin-table th { background: #1b4353; color: white; }
+
+.delete-btn { background: #d9534f; color: white; border: none; padding: 5px 10px; border-radius: 4px; cursor: pointer; }

@@ -1,19 +1,26 @@
 <nav class="custom-navbar">
   <div class="nav-left">
-    <a href="#" class="nav-link">SHOP</a>
-    <a href="#" class="nav-link">ABOUT</a>
+    <a routerLink="/" class="nav-link">SHOP</a>
+    <a routerLink="/about" class="nav-link">ABOUT</a>
   </div>
-  
+
   <div class="nav-center">
-    <h2 class="logo-text">
-      <span class="whale-icon"></span> Soq
-    </h2>
+    <h2 class="logo-text">🐋 MARNA</h2>
   </div>
-  
+
   <div class="nav-right">
-    <a href="#" class="nav-link">ACCOUNT</a>
-    <a href="#" class="icon-link">👤</a>
-    <a href="#" class="icon-link cart-icon">🛒 0</a>
+    
+    <a *ngIf="isUserAdmin" routerLink="/admin" class="nav-link">ADMIN</a>
+
+    <ng-container *ngIf="!isUserLoggedIn">
+      <a routerLink="/login" class="nav-link">LOGIN</a>
+      <a routerLink="/signup" class="nav-link">SIGN UP</a>
+    </ng-container>
+
+    <a *ngIf="isUserLoggedIn" (click)="logout()" class="nav-link" style="cursor: pointer;">LOGOUT</a>
+
+  <a routerLink="/cart" class="icon-link cart-icon">🛒 {{ cartItemCount }}</a>
+    
   </div>
 </nav>
 
